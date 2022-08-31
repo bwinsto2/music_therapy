@@ -1,4 +1,4 @@
-# music_therapy_AD
+# music_therapy
 
 1) clone directory
 2) put .wav files into songs directory and delete .txt file
