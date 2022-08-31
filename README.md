@@ -7,5 +7,7 @@
 5) hit run 
 
 you should change the instructions in the text components throughout the experiment
+
 soundcheck is a placeholder tone. feel free to change duration from 10s
+
 trigger is currently 5
