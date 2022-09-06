@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" ?>
-<PsychoPy2experiment encoding="utf-8" version="2022.1.4">
+<PsychoPy2experiment encoding="utf-8" version="2022.1.3">
   <Settings>
     <Param val="use prefs" valType="str" updates="None" name="Audio latency priority"/>
     <Param val="use prefs" valType="str" updates="None" name="Audio lib"/>
@@ -154,7 +154,7 @@
       <CodeComponent name="handle_songs">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
-        <Param val="import os &amp;#10;import pandas as pd&amp;#10;&amp;#10;sub = expInfo['participant']&amp;#10;ses = expInfo['session'] &amp;#10;trigger = '5' #CHANGE THIS IF YOU NEED TO&amp;#10;&amp;#10;song_titles = os.listdir('songs')&amp;#10;&amp;#10;songs = []&amp;#10;for song in song_titles:&amp;#10;    songs.append(f'songs/{song}')&amp;#10;songs_pd = pd.Series(songs, index = None, name = 'song')&amp;#10;songs_pd.to_csv(f'sub-{sub}_ses-{ses}_songs.csv', header = True, index = False)&amp;#10;&amp;#10;" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="import os &amp;#10;import pandas as pd&amp;#10;import random&amp;#10;&amp;#10;sub = expInfo['participant']&amp;#10;ses = expInfo['session'] &amp;#10;&amp;#10;ad_test = pd.read_csv('orders.csv',header=None)&amp;#10;ad_test = ad_test.astype(str)&amp;#10;&amp;#10;row_int = random.randint(0,(len(ad_test)-1))&amp;#10;row = ad_test.iloc[row_int]&amp;#10;songs = os.listdir('songs_dir')&amp;#10;song_order = []&amp;#10;&amp;#10;for snippet in row:&amp;#10;    for song in songs:&amp;#10;        if snippet in song:&amp;#10;            song_order.append(f'songs_dir/{song}')&amp;#10;            &amp;#10;songs_pd = pd.Series(song_order, index = None, name = 'song')&amp;#10;songs_pd.to_csv(f'sub-{sub}_ses-{ses}_songs.csv', header = True, index = False)" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin Routine"/>
@@ -541,7 +541,7 @@
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
       <KeyboardComponent name="key_resp_8">
-        <Param val="trigger" valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="'5'" valType="list" updates="constant" name="allowedKeys"/>
         <Param val="" valType="str" updates="constant" name="correctAns"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
         <Param val="True" valType="bool" updates="constant" name="discard previous"/>
